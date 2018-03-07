@@ -43,3 +43,10 @@ Lets take a look at some simple, broken, javascript:
 ```
 
 Try running this code and your browser (or whatever you use to run Javascript) will immediately complain `Uncaught ReferenceError: nombre is not defined`
+
+But what happens when we use jQuery to find something that doesn't exist?
+
+`$('.wrong-class').html('<div>new content!</div>')`
+(this code is supposed to find anything with the class `wrong-class` and set its HTML content to be a new div)
+
+running this code gives us no errors at all, not even a warning that jQuery couldn't set the HTML of the element with `wrong-class` since it found no  matching elements!
