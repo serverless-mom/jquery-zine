@@ -7,6 +7,7 @@ If you've never written a line of Javascript before, some of this book will be a
 Chapter 1: JQuery is just javascript
 
 When we first see some JQuery, it can sort of look like wizard writing:
+
 ```
 $('.plant-button').on('click', event => {
   event.preventDefault()
@@ -25,12 +26,20 @@ So let's take this apart piece by piece:
       `'click',` -> the event you're waiting for is a click
         `event => {` -> here's the code I want you to run when the click happens. We'll call this function with a single parameter, an `event` that represents what just happened
 
-So here's something really important tp remember about jQuery, which I'll explain in a section called "something really important to remember about jQuery"
+So here's something really important to remember about jQuery, which I'll explain in a section called "something really important to remember about jQuery"
 
 ## something really important to remember about jQuery
 #### jQuery starts by finding something
 JQuery's simplest function is `$()` with some selector (like a class name) inside the parenthesis. What this does is search the page for matching elements. Everything you call afterward like `.html()` is a 'chained method' that happens after jQuery has found stuff on the page.
 When trying to say what it is your code should do, if you start with a statement like "Add an H1 to the page that says 'hello'" you'll probably find it difficult to write in jQuery because you didn't start with finding something. It would be better to say 'Find an unordered list on the page, then add an H1 to the top of it.'
+
+----
+
+One other bit we have to address about JQuery being just Javascript is the somewhat-magical `$` that appears all over. Clearly this is a new eldritch symbol that calls the witch JQuery forth from her thousand-year slumber.
+
+[illo of JQuery witch rising from a pentagram ringed with dollar signs]
+
+Nope! It's just a function, like any other function. JQuery gets used so much that it's useful to be able to call it with a single character, and the dollar sign is easy to read in the code. Few other software libraries get the distinction of a single-character name, but the other notable example is Lodash, which is so useful for handling arrays and objects that most of the time it's bound to `_` (get it? Low Dash?)
 
 ## something really important to remember about jQuery
 #### when jQuery breaks, it usually happens silently
