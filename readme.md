@@ -96,7 +96,15 @@ When trying to say what it is your code should do, if you start with a statement
 ---------
 So our code starts by finding the only visible HTML element on the page and setting its text to something new.
 
-Chapter 3: let's get interactive
+## Chapter 3: let's get interactive
+
+## something really important to remember about jQuery
+#### "I am known by many names"
+A whole bunch of JQuery methods have multiple names. These aren't similar ways to do the same thing, they're identical functions you can call in at least two ways. The one I'm always running into is:
+`$('.plant-button').on('click', event => {`
+which is the same thing as:
+`$('.plant-button').click(event => {`
+The only lesson here is that, when you're looking at documentation or examples on StackOverflow, you might notice stuff like this. If so be aware it's possible both versions work the same!
 
 ## something really important to remember about jQuery
 #### when jQuery breaks, it usually happens silently
