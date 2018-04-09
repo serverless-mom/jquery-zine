@@ -94,9 +94,24 @@ jQuery's simplest function is `$()` with some selector (like a class name) insid
 When trying to say what it is your code should do, if you start with a statement like "Add an H1 to the page that says 'hello'" you'll probably find it difficult to write in jQuery because you didn't start with finding something. It would be better to say 'Find an unordered list on the page, then add an H1 to the top of it.'
 
 ---------
-So our code starts by finding the only visible HTML element on the page and setting its text to something new.
+Our code starts by finding the only visible HTML element on the page and setting its text to something new.
 
 ## Chapter 3: let's get interactive
+We've got jQuery working in our page, but once the h1 is changed the fun is over, and jQuery is really supposed to be about interactive web pages.
+
+Let's create a page that the user can click on to make something happen. At first, this 'something' will be a console.log statement.
+
+## chapter 4: double eventing, and events on parents
+## something really important to remember about ~jQuery~ actually any programming
+### start with the simplest version. No, simpler
+
+Imagine you're building a car. because you live in the woods you have to order each part off the internet. When each part arrives you install and connect it, until you have a complete internal combustion engine in the shell of a car.
+
+What do you think will happen when you turn the key the first time?
+
+You're probably guessing  that the first time you turn the keys, nothing works like its supposed to. More interesting than the fact that you can't put together 1,000 pieces of an engine and have it work the first time, is how hard the car is to fix at this point.
+
+Say you're turning the key and hearing nothing. It could be a dead battery. The battery connections could be corroded, the lock cylinder cracked, something could be draining the battery, or the starter could be broken. 
 
 ## something really important to remember about jQuery
 #### "I am known by many names"
