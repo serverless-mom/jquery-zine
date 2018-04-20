@@ -32,7 +32,7 @@ So let's take this apart piece by piece:
 
 One other bit we have to address about jQuery being just Javascript is the somewhat-magical `$` that appears all over. Clearly this is a new eldritch symbol that calls the witch jQuery forth from her thousand-year slumber.
 
-[illo of jQuery witch rising from a pentagram ringed with dollar signs]
+[jquery witch rears back in shock from her spellbook as A dark, mis-shapen creature, formed of no solid corpus but more a mass of tentacles, presses its head through a magical book (like there's a magic portal in the book), ]
 
 Nope! It's just a function, like any other function. jQuery gets used so much that it's useful to be able to call it with a single character, and the dollar sign is easy to read in the code. Few other software libraries get the distinction of a single-character name, but the other notable example is Lodash, which is so useful for handling arrays and objects that most of the time it's bound to `_` (get it? Low Dash?)
 
@@ -90,6 +90,8 @@ What's this line of code doing? So here's something really important to remember
 
 ## something really important to remember about jQuery
 #### jQuery starts by finding something
+
+[jQuery witch speaks into a magic mirror, saying "eye of frog and demon's bile, find me a header with a class of 'title'" as "<h1>" appears in the glass]
 jQuery's simplest function is `$()` with some selector (like a class name) inside the parenthesis. What this does is search the page for matching elements. Everything you call afterward like `.html()` is a 'chained method' that happens after jQuery has found stuff on the page.
 When trying to say what it is your code should do, if you start with a statement like "Add an H1 to the page that says 'hello'" you'll probably find it difficult to write in jQuery because you didn't start with finding something. It would be better to say 'Find an unordered list on the page, then add an H1 to the top of it.'
 
@@ -111,7 +113,7 @@ What do you think will happen when you turn the key the first time?
 
 You're probably guessing  that the first time you turn the keys, nothing works like its supposed to. More interesting than the fact that you can't put together 1,000 pieces of an engine and have it work the first time, is how hard the car is to fix at this point.
 
-Say you're turning the key and hearing nothing. It could be a dead battery. The battery connections could be corroded, the lock cylinder cracked, something could be draining the battery, or the starter could be broken. 
+Say you're turning the key and hearing nothing. It could be a dead battery. The battery connections could be corroded, the lock cylinder cracked, something could be draining the battery, or the starter could be broken.
 
 ## something really important to remember about jQuery
 #### "I am known by many names"
@@ -133,9 +135,35 @@ Lets take a look at some simple, broken, javascript:
 
 Try running this code and your browser (or whatever you use to run Javascript) will immediately complain `Uncaught ReferenceError: nombre is not defined`
 
+[panel 1: jQuery witch speaks to a clay golem. The golem is broad-shouldered with huge arms and massive fingers ending in claw-like points (think of clayface from Batman the Animated Series) with a smooth, rounded head and a pair of flat round eyes and no mouth. jQuery witch says "go and find a div with ID 'total-price', make its contents bold, give it a red border, and then double its size" as she points off to the right
+
+panel 2: the golem looks at a bunch of html (don't draw the HTML I'll add it from a screenshot, just draw like, a blank sheet of paper the golem is looking at) and thinks to himself "there's nothing here with a matching ID"
+
+panel 3: the golem returns to the witch's side
+witch: did you complete your task?
+golem: ...
+witch: I'll take that as a yes
+]
+
 But what happens when we use jQuery to find something that doesn't exist?
 
 `$('.wrong-class').html('<div>new content!</div>')`
 (this code is supposed to find anything with the class `wrong-class` and set its HTML content to be a new div)
 
 running this code gives us no errors at all, not even a warning that jQuery couldn't set the HTML of the element with `wrong-class` since it found no  matching elements!
+
+Even worse, when finding sent to find something that doesn't exist jQuery will return with... something. Entering `$('.wrong-class')`
+in your browser's console will return something like `m.fn.init [prevObject: m.fn.init(1), context: document, selector: ".wrong-class"]` instead of `null` or `undefined` which probably would have made more sense.
+
+The best way to check whether jQuery really found something is to ask its length. This protects you from trying to do stuff when jQuery found nothing, *and* from accidentally selecting too much:
+
+[the same setup as the previous strip, with the witch and the golem, but this time she's just finished using a tiny, leaf-shaped iron knife to cut a slit in the golems face where a mouth should be
+witch: when I sent you to find divs, did you find anything?
+golem: yes, I've got a list of everything I found.
+witch: and how long is this list?
+golem: zero]
+
+In my sample page:
+`$('.wrong-class').length` returns 0
+`$('div').length` returns 15, there are a whole bunch of divs in my document!
+`$('.right-class').length` returns 1
