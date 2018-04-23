@@ -95,16 +95,10 @@ What's this line of code doing? So, here's something really important to remembe
 ## Something Really Important to Remember about jQuery:
 
 #### jQuery starts by finding something
-<<<<<<< HEAD
 
 [jQuery witch speaks into a magic mirror, saying "eye of frog and demon's bile, find me a header with a class of 'title'" as "<h1>" appears in the glass]
 jQuery's simplest function is `$()` with some selector (like a class name) inside the parenthesis. What this does is search the page for matching elements. Everything you call afterward like `.html()` is a 'chained method' that happens after jQuery has found stuff on the page.
 When trying to say what it is your code should do, if you start with a statement like "Add an H1 to the page that says 'hello'" you'll probably find it difficult to write in jQuery because you didn't start with finding something. It would be better to say 'Find an unordered list on the page, then add an H1 to the top of it.'
-=======
-jQuery's simplest function is `$()` with some selector (like a class name) inside the parenthesis. This does a search of the page for matching elements. Everything you call afterward such as `.html()` is a 'chained method' that happens after jQuery has found stuff on the page.
-
-When trying to say what it is your code should do, if you start with a statement like "Add an H1 to the page that says `'hello'` you'll probably find it difficult to write in jQuery because you didn't start with finding something. It would be better to say 'Find an unordered list on the page', than add an H1 to the top of it.
->>>>>>> 84d36f2cf03107f6f89c3a993e788e149b1f3de9
 
 ---------
 
@@ -163,7 +157,6 @@ But what happens when we use jQuery to find something that doesn't exist?
 `$('.wrong-class').html('<div>new content!</div>')`
 (this code is supposed to find anything with the class `wrong-class` and set its HTML content to be a new div)
 
-<<<<<<< HEAD
 running this code gives us no errors at all, not even a warning that jQuery couldn't set the HTML of the element with `wrong-class` since it found no  matching elements!
 
 Even worse, when finding sent to find something that doesn't exist jQuery will return with... something. Entering `$('.wrong-class')`
@@ -181,6 +174,3 @@ In my sample page:
 `$('.wrong-class').length` returns 0
 `$('div').length` returns 15, there are a whole bunch of divs in my document!
 `$('.right-class').length` returns 1
-=======
-Running this code gives us no errors at all, not even a warning that jQuery couldn't set the HTML of the element with `wrong-class` since it found no  matching elements!
->>>>>>> 84d36f2cf03107f6f89c3a993e788e149b1f3de9
