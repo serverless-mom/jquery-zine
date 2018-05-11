@@ -122,6 +122,12 @@ You're probably guessing  that the first time you turn the keys, nothing works l
 
 Say you're turning the key and hearing nothing. It could be a dead battery. The battery connections could be corroded, the lock cylinder cracked, something could be draining the battery, or the starter could be broken.
 
+We always want to start with code that does the simplest possible thing. If it's supposed to trigger an animation, play a sound, and show a message, start with code that *just* shows a message
+
+-------------
+
+
+
 ## something really important to remember about jQuery
 #### "I am known by many names"
 A whole bunch of JQuery methods have multiple names. These aren't similar ways to do the same thing, they're identical functions you can call in at least two ways. The one I'm always running into is:
