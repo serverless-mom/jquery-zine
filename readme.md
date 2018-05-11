@@ -2,7 +2,7 @@
 
 If you understand Javascript okay but are struggling with jQuery, this book is for you!
 
-If you've never written a line of Javascript before, some of this book will be a little off-base but you should be able to do all the exercises. If you'd like to learn some Javascript before getting started, I recommend the 'Basic Javascript' course at freecodecamp.org.
+If you've never written a line of Javascript before, some of this book will be a little off-base but you should be able to do all the exercises. If you'd like to learn some Javascript before getting started, I recommend the ['Basic Javascript'](https://www.freecodecamp.org/map) course at [freecodecamp.org](https://www.freecodecamp.org).
 
 If you're an experienced developer who is curious about whether jQuery is useful at all, check out Wes Bos' free course at javascript30.com, which teaches you a bunch of browser and code skills all using native Javascript without the need for jQuery.
 
