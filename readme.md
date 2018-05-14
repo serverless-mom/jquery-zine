@@ -2,7 +2,7 @@
 
 If you understand Javascript okay but are struggling with jQuery, this book is for you!
 
-If you've never written a line of Javascript before, some of this book will be a little off-base but you should be able to do all the exercises. If you'd like to learn some Javascript before getting started, I recommend the ['Basic Javascript'](https://www.freecodecamp.org/map) course at [freecodecamp.org](https://www.freecodecamp.org).
+If you've never written a line of Javascript before, some of this book will be a little off-base but you should be able to do all the exercises. If you'd like to learn some Javascript before getting started, I recommend the [Basic Javascript](https://www.freecodecamp.org/map) course at [freecodecamp.org](https://www.freecodecamp.org).
 
 If you're an experienced developer who is curious about whether jQuery is useful at all, check out Wes Bos' free course at javascript30.com, which teaches you a bunch of browser and code skills all using native Javascript without the need for jQuery.
 
@@ -50,7 +50,7 @@ jQuery is a library, which just means it's a bunch of pre-written javascript to 
 
 Option 1 means you can develop a fully working interactive site with no need for a web connection after you download jQuery, but unless you're learning Jquery on a flakey internet connection, it's usually more convenient to go with option 2.
 
-When you go to link jQuery to your page (`https://code.jquery.com/` is a good resource) you'll see a few terms that deserve definition:
+When you go to link jQuery to your page ([code.jquery.com](https://code.jquery.com/) is a good resource) you'll see a few terms that deserve definition:
 
 CDN - A content delivery network which serves your file by the fastest possible route.
 
