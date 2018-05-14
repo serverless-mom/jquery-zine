@@ -19,7 +19,7 @@ $('.plant-button').on('click', event => {
 
 `$`?  `.on()`? This must be some fancy new programming language designed for use with jQuery, right?
 
-Really this is just standard javascript, but since we use jQuery so much it's a little more compact than usual: we set `$() = window.jQuery()` so we can call jQuery with a single character. If you want to prove it to yourself, open your browser's developer console and enter `window.jQuery === $()`. You should get back `true`.
+Really this is just standard javascript, but since we use jQuery so much it's a little more compact than usual: we set `$() = window.jQuery()` so we can call jQuery with a single character. If you want to prove it to yourself, open your browser's developer console and enter `window.jQuery === $`. You should get back `true`.
 
 So let's take this apart piece by piece:
 `$(` -> Hey jQuery, I want you to find something for me.
@@ -36,7 +36,7 @@ So let's take this apart piece by piece:
 
 One part we have to address about jQuery just being Javascript is the somewhat magical `$` that appears all over. Clearly this is an eldritch symbol that calls the witch jQuery forth from her thousand-year slumber.
 
-[jquery witch rears back in shock from her spellbook as A dark, mis-shapen creature, formed of no solid corpus but more a mass of tentacles, presses its head through a magical book (like there's a magic portal in the book), ]
+[jquery witch rears back in shock from her spellbook as A dark, misshapen creature, formed of no solid corpus but more a mass of tentacles, presses its head through a magical book (like there's a magic portal in the book), ]
 
 Nope! It's just a function, like any other function. jQuery gets used so much that it's useful to be able to call it with a single character, and the dollar sign is easy to read in code. Few other software libraries get the distinction of a single-character name, but one of the other notable examples is Lodash, which is so useful for handling arrays and objects that most of the time it's bound to `_` (Get it, *Low Dash*?)
 
