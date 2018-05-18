@@ -180,3 +180,63 @@ In my sample page:
 `$('.wrong-class').length` returns 0
 `$('div').length` returns 15, there are a whole bunch of divs in my document!
 `$('.right-class').length` returns 1
+
+
+## (example for same listener on multiple elements)
+
+To follow along, create a new directory with a file called `index.html` and a file called `index.js`. Paste this code in the HTML file:
+
+```
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>A Few Small Spells</title>
+    </head>
+    <body>
+      <h1></h1>
+      <button class="summon-darkness">Summon Darkness</button>
+      <button class="dispatch-bats">Dispatch Bats</button>
+      <button class="dispatch-bats">More Bats!</button>
+      <button class="reset">Reset</button>
+      <div class="spell-box"></div>
+      <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+      <script src="./index.js"></script>
+    </body>
+</html>
+```
+
+And this code in the JavaScript file:
+
+```
+$(".summon-darkness").on("click", event => {
+  $(".spell-box").append("Darkness!")
+})
+
+$(".dispatch-bats").on("click", event => {
+  $(".spell-box").append("Bats!")
+})
+
+
+$(".reset").on("click", event => {
+  $(".spell-box").html("")
+})
+```
+If you open the HTML file in your browser, you'll see four buttons. Play around with them and see that you can make text appear and disappear by clicking buttons.
+
+Now take a closer look at the JavaScript file. Wait a minute, you may be thinking, there are four buttons on the page, but only three event listeners! So how is it that you can trigger an event from all four buttons. Take a look at the `Dispatch Bats` and `More Bats!` buttons in the HTML. They both have `class="dispatch-bats"`. This means that when  *either* button is clicked, the following code runs:
+
+```
+$(".dispatch-bats").on("click", event => {
+  $(".spell-box").append("Bats!")
+})
+```
+
+
+## Taming the Strange Evils of Multiple Event Listeners (for later)
+
+As you start working with event listeners, you may begin to notice that they can harbor strange and troubling side effects. Perhaps you find that event listener you intended to add once is in fact added thrice!
+
+The good news is that this evil magic can be managed with proper set-up, care, and feeding. So how do you know when the scourge of unintended event listeners is happening? And how can you prevent it?
