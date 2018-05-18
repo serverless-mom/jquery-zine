@@ -2,7 +2,7 @@
 
 If you understand Javascript okay but are struggling with jQuery, this book is for you!
 
-If you've never written a line of Javascript before, some of this book will be a little off-base but you should be able to do all the exercises. If you'd like to learn some Javascript before getting started, I recommend the 'Basic Javascript' course at freecodecamp.org.
+If you've never written a line of Javascript before, some of this book will be a little off-base but you should be able to do all the exercises. If you'd like to learn some Javascript before getting started, I recommend the [Basic Javascript](https://www.freecodecamp.org/map) course at [freecodecamp.org](https://www.freecodecamp.org).
 
 If you're an experienced developer who is curious about whether jQuery is useful at all, check out Wes Bos' free course at javascript30.com, which teaches you a bunch of browser and code skills all using native Javascript without the need for jQuery.
 
@@ -19,7 +19,7 @@ $('.plant-button').on('click', event => {
 
 `$`?  `.on()`? This must be some fancy new programming language designed for use with jQuery, right?
 
-Really this is just standard javascript, but since we use jQuery so much it's a little more compact than usual: we set `$() = window.jQuery()` so we can call jQuery with a single character. If you want to prove it to yourself, open your browser's developer console and enter `window.jQuery === $()`. You should get back `true`.
+Really this is just standard javascript, but since we use jQuery so much it's a little more compact than usual: we set `$() = window.jQuery()` so we can call jQuery with a single character. If you want to prove it to yourself, open your browser's developer console and enter `window.jQuery === $`. You should get back `true`.
 
 So let's take this apart piece by piece:
 `$(` -> Hey jQuery, I want you to find something for me.
@@ -36,7 +36,7 @@ So let's take this apart piece by piece:
 
 One part we have to address about jQuery just being Javascript is the somewhat magical `$` that appears all over. Clearly this is an eldritch symbol that calls the witch jQuery forth from her thousand-year slumber.
 
-[jquery witch rears back in shock from her spellbook as A dark, mis-shapen creature, formed of no solid corpus but more a mass of tentacles, presses its head through a magical book (like there's a magic portal in the book), ]
+[jquery witch rears back in shock from her spellbook as A dark, misshapen creature, formed of no solid corpus but more a mass of tentacles, presses its head through a magical book (like there's a magic portal in the book), ]
 
 Nope! It's just a function, like any other function. jQuery gets used so much that it's useful to be able to call it with a single character, and the dollar sign is easy to read in code. Few other software libraries get the distinction of a single-character name, but one of the other notable examples is Lodash, which is so useful for handling arrays and objects that most of the time it's bound to `_` (Get it, *Low Dash*?)
 
@@ -50,7 +50,7 @@ jQuery is a library, which just means it's a bunch of pre-written javascript to 
 
 Option 1 means you can develop a fully working interactive site with no need for a web connection after you download jQuery, but unless you're learning Jquery on a flakey internet connection, it's usually more convenient to go with option 2.
 
-When you go to link jQuery to your page (`https://code.jquery.com/` is a good resource) you'll see a few terms that deserve definition:
+When you go to link jQuery to your page ([code.jquery.com](https://code.jquery.com/) is a good resource) you'll see a few terms that deserve definition:
 
 CDN - A content delivery network which serves your file by the fastest possible route.
 
@@ -211,3 +211,63 @@ In my sample page:
 `$('.wrong-class').length` returns 0
 `$('div').length` returns 15, there are a whole bunch of divs in my document!
 `$('.right-class').length` returns 1
+
+
+## (example for same listener on multiple elements)
+
+To follow along, create a new directory with a file called `index.html` and a file called `index.js`. Paste this code in the HTML file:
+
+```
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>A Few Small Spells</title>
+    </head>
+    <body>
+      <h1></h1>
+      <button class="summon-darkness">Summon Darkness</button>
+      <button class="dispatch-bats">Dispatch Bats</button>
+      <button class="dispatch-bats">More Bats!</button>
+      <button class="reset">Reset</button>
+      <div class="spell-box"></div>
+      <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+      <script src="./index.js"></script>
+    </body>
+</html>
+```
+
+And this code in the JavaScript file:
+
+```
+$(".summon-darkness").on("click", event => {
+  $(".spell-box").append("Darkness!")
+})
+
+$(".dispatch-bats").on("click", event => {
+  $(".spell-box").append("Bats!")
+})
+
+
+$(".reset").on("click", event => {
+  $(".spell-box").html("")
+})
+```
+If you open the HTML file in your browser, you'll see four buttons. Play around with them and see that you can make text appear and disappear by clicking buttons.
+
+Now take a closer look at the JavaScript file. Wait a minute, you may be thinking, there are four buttons on the page, but only three event listeners! So how is it that you can trigger an event from all four buttons. Take a look at the `Dispatch Bats` and `More Bats!` buttons in the HTML. They both have `class="dispatch-bats"`. This means that when  *either* button is clicked, the following code runs:
+
+```
+$(".dispatch-bats").on("click", event => {
+  $(".spell-box").append("Bats!")
+})
+```
+
+
+## Taming the Strange Evils of Multiple Event Listeners (for later)
+
+As you start working with event listeners, you may begin to notice that they can harbor strange and troubling side effects. Perhaps you find that event listener you intended to add once is in fact added thrice!
+
+The good news is that this evil magic can be managed with proper set-up, care, and feeding. So how do you know when the scourge of unintended event listeners is happening? And how can you prevent it?
