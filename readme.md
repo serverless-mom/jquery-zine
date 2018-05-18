@@ -110,7 +110,6 @@ We've got jQuery working in our page, but once the h1 is changed the fun is over
 
 Let's create a page that the user can click on to make something happen. At first, this 'something' will be a console.log statement.
 
-## Chapter 4: Double eventing, and events on parents
 ## Something Really Important to Remember about ~jQuery~ actually any programming
 ### start with the simplest version. No, simpler
 
@@ -125,6 +124,38 @@ Say you're turning the key and hearing nothing. It could be a dead battery. The 
 We always want to start with code that does the simplest possible thing. If it's supposed to trigger an animation, play a sound, and show a message, start with code that *just* shows a message
 
 -------------
+Let's build some HTML with a big, obvious target for clicking. I don't want to use any fancy CSS to style the page, so we'll give a long bit of text to click on:
+```
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Our First jQuery Page</title>
+    </head>
+    <body>
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script src="./script.js"></script>
+      <h1>hello world!</h1>
+      <p class="click-me">click me and something good will happen</p>
+    </body>
+</html>
+```
+Now some JQuery to say 'when anything with class `click-me` gets clicked, log "I caught a click!"'
+
+```
+$(document).ready(() => {
+  $('.click-me').on('click', (event) => {
+    event.preventDefault()
+    console.log('I caught a click!')
+  })
+})
+```
+You can copy/paste this code right now and see it working, but when you're done come back her and we'll break it apart line-by-line
+
+`$(document).ready(() => {`
+  This, and its partner `})`
+
+## Chapter 4: Double eventing, and events on parents
+
 
 
 
