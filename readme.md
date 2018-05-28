@@ -213,9 +213,11 @@ In my sample page:
 `$('.right-class').length` returns 1
 
 
-## (example for same listener on multiple elements)
+### "Spells for many occasions" (section for after explanation of event listeners)
 
-To follow along, create a new directory with a file called `index.html` and a file called `index.js`. Paste this code in the HTML file:
+Because event listeners point to classes, it's possible to point to multiple elements on the page with the same listener. How does this work?
+
+In a new directory, create a new directory with a file called `index.html` and a file called `index.js`. Paste this code in the HTML file:
 
 ```
 <!DOCTYPE html>
@@ -264,7 +266,6 @@ $(".dispatch-bats").on("click", event => {
   $(".spell-box").append("Bats!")
 })
 ```
-
 
 ## Taming the Strange Evils of Multiple Event Listeners (for later)
 
