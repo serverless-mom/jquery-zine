@@ -28,3 +28,14 @@ witch: when I sent you to find divs, did you find anything?
 golem: yes, I've got a list of everything I found.
 witch: and how long is this list?
 golem: zero
+
+
+7. Plants! I need nine small plant drawings that show:
+* a pot of earth
+* same pot, tiny sprout emerging
+* Now that sprout has put out a single [Nasturtium leaf](http://www.suttons.co.uk/Gardening/Flower+Seeds/All+Flower+Seeds/Nasturtium+Ladybird+Rose_124080.htm)
+* now that sprout has put out three rose leaves
+* now that sprout is joined by several others! tulip leaves coming from the ground
+* Nasturtium flower and leaves (still in that pot)
+* Single Rose Stem and leaves (still in that pot)
+* Tulip flower and leaves (still in that pot)
