@@ -39,3 +39,5 @@ golem: zero
 * Nasturtium flower and leaves (still in that pot)
 * Single Rose Stem and leaves (still in that pot)
 * Tulip flower and leaves (still in that pot)
+
+8. JQuery witch's body is slumped in a wingback chair, unconscious. Floating in the air above her, her Astral Form which looks like her except her hair is floating as if underwater, is locked in combat with another astral form, a demon with 1,000 eyes

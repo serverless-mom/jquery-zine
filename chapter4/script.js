@@ -1,6 +1,6 @@
 $(document).ready(() => {
   $('.click-me').on('click', (event) => {
     event.preventDefault()
-    console.log('I caught a click!')
+    $('h1').html('I am changed, transformed, transfigured!')
   })
 })

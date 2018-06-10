@@ -152,12 +152,23 @@ $(document).ready(() => {
 You can copy/paste this code right now and see it working, but when you're done come back her and we'll break it apart line-by-line
 
 `$(document).ready(() => {`
-  This, and its partner `})`
+  This makes sure we're waiting for the document to be ready before we start trying to add stuff to it.
 
-## Chapter 4: Double eventing, and events on parents
+`  $('.click-me').on('click', (event) => {`
+  A lot happens on this line!
+  * we use jQuery to find anything with the class `click-me`,
+  * then we add an event listener with `.on()`. We're going to give `.on()` two arguments: a kind of event to listen for, and a function to call when that event happens.
+  * We say we want to listen for a `'click'`
+  * we give `.on()` a function, which takes one parameter, an `event` that tells us a bit about who got clicked
+
+`    event.preventDefault()`
+  "whatever you would normally do when this thing got clicked, don't do it" since we put this listener on a paragraph `p` element, we really don't need this line because by default clicking on a `<p>` does... nothing. But for reasons I'll cover in chapter *XX*, it's better to do this every time
+
+`    console.log('I caught a click!')`
+  The only thing our click handler does is log the fact that it got a click
 
 
-
+One question you might ask about this code, if you've written any jQuery before: why do we say `$('.click-me').on('click'` instead of `$('.click-me').click`?
 
 ## something really important to remember about jQuery
 #### "I am known by many names"
@@ -166,6 +177,62 @@ A whole bunch of JQuery methods have multiple names. These aren't similar ways t
 which is the same thing as:
 `$('.plant-button').click(event => {`
 The only lesson here is that, when you're looking at documentation or examples on StackOverflow, you might notice stuff like this. If so be aware it's possible that both versions work the same!
+------------------
+
+Right now, when we load our page, we need to open the console to see any result from clicking on the text. In the next chapter we'll output these changes to a page.
+
+## Chapter 4: actually changing the page
+### This is a really short chapter.
+
+We're going to make a pretty tiny change to our javascript to actually change the page
+```
+$(document).ready(() => {
+  $('.click-me').on('click', (event) => {
+    event.preventDefault()
+    $('h1').html('I am changed, transformed, transfigured!')
+  })
+})
+```
+There's only one line changed:
+`$('h1').html('I am changed, transformed, transfigured!')`
+This line starts by finding all the H1's in the page and changing their html to new text.
+If you run this code with an HTML page in the, you'll need to refresh the page to reset the H1 back to its initial value.
+
+I'd like to make a little change to the HTML at the same time. What I'd like is to have two places you can click to change the H1. Let's add a second item with the `click-me` class:
+
+```
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Our First jQuery Page</title>
+    </head>
+    <body>
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script src="./script.js"></script>
+      <h1>hello world!</h1>
+      <p class="click-me">click me and something good will happen</p>
+      <h2>no clicking me!</h2>
+      <a class="click-me">I too may be clicked</a>
+    </body>
+</html>
+```
+
+Look back up and ask what we need to change about the pages Javascript to make both these areas click-able.
+
+...
+
+....
+
+......
+
+Actually we don't need to change anything! the selector for our click handler started with the selector `$('.click-me')` which like all class-based selectors really says "anything on the page with this class."
+
+* anyway I didn't have much more to do in this chapter. Let's make something cool already!
+
+
+## Chapter 5: Lets plant a garden
+### in which our heroine uses jQuery to create something nice
+
 
 ## something really important to remember about jQuery
 #### when jQuery breaks, it usually happens silently
@@ -212,6 +279,10 @@ In my sample page:
 `$('div').length` returns 15, there are a whole bunch of divs in my document!
 `$('.right-class').length` returns 1
 
+# chapter 6: making things a bit more abstract
+[JQuery witch's body is slumped in a wingback chair, unconscious. Floating in the air above her, her Astral Form which looks like her except her hair is floating as if underwater, is locked in combat with another astral form, a demon with 1,000 eyes]
+
+Right now we've
 
 ### "Spells for many occasions" (section for after explanation of event listeners)
 
@@ -267,6 +338,33 @@ $(".dispatch-bats").on("click", event => {
 })
 ```
 
+## Why won't this work?
+Event Listeners on stuff that isn't there yet
+```
+function setupWatering() {
+  $(".water-button").on("click", (event) => {
+    event.preventDefault()
+    const plantIndex = getPlantIndex(event.target)
+    PLANTS[plantIndex].stage++
+    renderGarden()
+  })
+}
+```
+this code seems like it work! but if I add any *new* divs that contain `<button class="water-button">water me!</button>` *after* we added a click handler, they won't work. This kind of flies in the face of what we've learned before: click handlers should tend to stick around, and if you give them a class to target they should target all things with that class.
+
+The problem here is that we started with a selector for the button which, presumably, is inside some div showing a plant. Let's look at another way to write this selector that looks really similar:
+
+```
+function setupWatering() {
+  $("body").on("click", ".water-button",(event) => {
+    //the code inside the handler would be identical
+  })
+}
+```
+
+now it's saying 'hey HTML body, any time something gets clicked inside you, *and* the thing clicked had the class water-button, do this'. But this code will work for buttons we add later.
+
+Click handlers are like patient spirits, and the very first thing we give them is the house they're going to haunt. If we start with `'body'` then the spirit will see clicks anywhere on the page. But if we start with the button name, it won't see other new buttons added later to haunt them, even if they meet the criteria.
 ## Taming the Strange Evils of Multiple Event Listeners (for later)
 
 As you start working with event listeners, you may begin to notice that they can harbor strange and troubling side effects. Perhaps you find that event listener you intended to add once is in fact added thrice!
