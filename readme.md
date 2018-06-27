@@ -233,6 +233,17 @@ Actually we don't need to change anything! the selector for our click handler st
 ## Chapter 5: Lets plant a garden
 ### in which our heroine uses jQuery to create something nice
 
+Most guides to JQuery, and front-end javascript in general, make the same 'basic app,' a to-do list app that lets you create, remove, and modify individual items in an overall list.
+
+It's a nice application but not very 'witchy', so let's do something all witches should know how to do: tend a garden.
+
+Our garden will be very simple, it just lets us plant 3 types of plant, water them to make them grow, and trim them.
+
+Here's what our finished version will look like.
+
+[screenshot of the garden app]
+
+Let's take a look at the HTML of our garden
 
 ## something really important to remember about jQuery
 #### when jQuery breaks, it usually happens silently
@@ -279,10 +290,7 @@ In my sample page:
 `$('div').length` returns 15, there are a whole bunch of divs in my document!
 `$('.right-class').length` returns 1
 
-# chapter 6: making things a bit more abstract
-[JQuery witch's body is slumped in a wingback chair, unconscious. Floating in the air above her, her Astral Form which looks like her except her hair is floating as if underwater, is locked in combat with another astral form, a demon with 1,000 eyes]
 
-Right now we've
 
 ### "Spells for many occasions" (section for after explanation of event listeners)
 
@@ -369,4 +377,4 @@ Click handlers are like patient spirits, and the very first thing we give them i
 
 As you start working with event listeners, you may begin to notice that they can harbor strange and troubling side effects. Perhaps you find that event listener you intended to add once is in fact added thrice!
 
-The good news is that this evil magic can be managed with proper set-up, care, and feeding. So how do you know when the scourge of unintended event listeners is happening? And how can you prevent it?
+The best way to diagnose this is to add a `console.log` statement inside your click handler, then check to see if the handler is 'firing' more than once.
